@@ -117,7 +117,15 @@ L.marker([-33.9782857574103, 151.05607345240398], {icon: violetIcon}).addTo(map)
 L.marker([-33.97679758589208, 151.05888488759294], {icon: violetIcon}).addTo(map)
   .bindPopup('<a href="./AR1.html">Whats Here? 1</a>'); 
     
-    function onLocationError(e) {
+   function onLocationFound(e) {
+		var radius = e.accuracy / 2;
+
+		L.marker(e.latlng).addTo(map)
+			.bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+	}
+	  
+	  function onLocationError(e) {
 		alert(e.message);
 	}
 
