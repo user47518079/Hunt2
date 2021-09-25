@@ -33,14 +33,14 @@
 	    <a-gltf-model 
 	    id="tree1"
 		src="src: url(./media/BigMinion.glb)"
-            scale="0.25 0.25 0.25"
+            scale="0.3 0.3 0.3"
 			   animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"
               gps-entity-place="latitude: -33.9782857574103; longitude: 151.05607345240398;">
 
 	          
        </a-gltf-model>
 
-        <a-camera look-controls-enabled='false' arjs-look-controls='smoothingFactor: 0.1' gps-camera rotation-reader>
+        <a-camera look-controls-enabled='false' arjs-look-controls='smoothingFactor: 0.1' gps-camera="maxDistance: 50" rotation-reader>
 		
 	</a-camera>
 </a-scene>
