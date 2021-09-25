@@ -40,8 +40,24 @@
     url: 'http://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Imagery/MapServer',
       attribution: '&copy;  <a href="https://maps.six.nsw.gov.au/">NSW Public Imagery - Department of Customer Service 2020</a>'
   }).addTo(map);
-	  
-map.locate({setView: true, watch: true, maxZoom: 19});
+	
+	  function onLocationFound(e) {
+		var radius = e.accuracy / 2;
+
+		L.marker(e.latlng).addTo(map)
+			.bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+		L.circle(e.latlng, radius).addTo(map);
+	}
+
+	function onLocationError(e) {
+		alert(e.message);
+	}
+
+	map.on('locationfound', onLocationFound);
+	map.on('locationerror', onLocationError);
+
+	map.locate({setView: true, watch: true, maxZoom: 18});
 
 	  
     var greenIcon = new L.Icon({
