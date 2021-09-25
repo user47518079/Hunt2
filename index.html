@@ -50,9 +50,6 @@
 		L.circle(e.latlng, radius).addTo(map);
 	}
 
-	function onLocationError(e) {
-		alert(e.message);
-	}
 
 	map.on('locationfound', onLocationFound);
 	map.on('locationerror', onLocationError);
