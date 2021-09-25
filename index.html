@@ -34,10 +34,11 @@
 
   /* Set up the initial map center and zoom level */
   var map = L.map('map', {
+	  map.locate({setView: true, watch: true, maxZoom: 19}),
     scrollWheelZoom: true,
     tap: false
   });
-	map.locate({setView: true, watch: true, maxZoom: 19})
+
 
   /* display basemap tiles -- see others at https://leaflet-extras.github.io/leaflet-providers/preview/ */
   L.esri.tiledMapLayer({
