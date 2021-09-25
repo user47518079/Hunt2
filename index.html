@@ -26,14 +26,19 @@
 
 	
   <!-- Display the map and title with HTML division tags  -->
-  <div id="map-title">The Hunt!</div>
+  <div id="map-title">Emliy's Hunt!</div>
   <div id="map"></div>
 
   <!-- Create the interactive map content with JavaScript (.js) -->
   <script>
 
   /* Set up the initial map center and zoom level */
-  var map = L.map('map').fitWorld();
+  var map = L.map('map', {
+    center: [-33.97913669799176, 151.05409191736968], // EDIT coordinates to re-center map
+    zoom: 19,  // EDIT from 1 (zoomed out) to 18 (zoomed in)
+    scrollWheelZoom: true,
+    tap: false
+  });
 	  
   /* display basemap tiles -- see others at https://leaflet-extras.github.io/leaflet-providers/preview/ */
   L.esri.tiledMapLayer({
@@ -41,21 +46,6 @@
       attribution: '&copy;  <a href="https://maps.six.nsw.gov.au/">NSW Public Imagery - Department of Customer Service 2020</a>'
   }).addTo(map);
 	
-	  function onLocationFound(e) {
-		var radius = e.accuracy / 2;
-
-		L.marker(e.latlng).addTo(map)
-			.bindPopup("You are within " + radius + " meters from this point").openPopup();
-
-		L.circle(e.latlng, radius).addTo(map);
-	}
-
-
-	map.on('locationfound', onLocationFound);
-	map.on('locationerror', onLocationError);
-
-	map.locate({setView: true, watch: true, maxZoom: 18});
-
 	  
     var greenIcon = new L.Icon({
   iconUrl: './media/marker-icon-2x-green.png',
