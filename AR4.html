@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>mini Minion</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script>
+	<script src="https://rawgit.com/blairmacintyre/aframe-look-at-billboard-component/master/dist/aframe-look-at-billboard-component.min.js"></script>
+	   
+</head>
+	
+<body style='margin: 10; overflow: hidden;'>
+	    <div
+      style="position: fixed; top:80%; width:100%; text-align: center; z-index: 1;"
+    >
+		    <img src="./media/EmiBack.png" width="100" height="100" 
+      <button id="Back">
+        	      
+      </button>
+    </div>
+	
+    <a-scene
+        cursor='rayOrigin: mouse; fuse: true; fuseTimeout: 0;'
+        raycaster="objects: [clickhandler];"
+        vr-mode-ui="enabled: false"
+		embedded
+		arjs='sourceType: webcam; debugUIEnabled: false;'>
+		
+	    
+	    
+	    
+	    <a-gltf-model 
+	    id="tree1"
+		src="src: url(./media/miniMinion.glb)"
+            scale="1 1 1"
+			   animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"
+              gps-entity-place="latitude: -33.97861357989953; longitude: 151.05546538769633;">
+
+	       
+		   
+       </a-gltf-model>
+
+        <a-camera look-controls-enabled='false' arjs-look-controls='smoothingFactor: 0.1' gps-camera rotation-reader>
+		
+	</a-camera>
+</a-scene>
+<script type="text/javascript">
+     document.querySelector("#Back").addEventListener("click", function() {
+       window.history.back();
+      });
+	
+	
+      
+    </script>
+  </body>
+	
+</body>
+</html>
