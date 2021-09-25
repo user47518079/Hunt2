@@ -33,7 +33,7 @@
 	    <a-gltf-model 
 	    id="tree1"
 		src="src: url(./media/hambrugrer.glb)"
-            scale="1 1 1"
+            scale="0.2 0.2 0.2"
 			   animation="property: rotation; to: 0 360 0; loop: true; dur: 10000"
               gps-entity-place="latitude: -33.978701087498635; longitude: 151.0541387659527;">
 
@@ -41,7 +41,7 @@
 		   
        </a-gltf-model>
 
-        <a-camera look-controls-enabled='false' arjs-look-controls='smoothingFactor: 0.1' gps-camera rotation-reader>
+        <a-camera look-controls-enabled='false' arjs-look-controls='smoothingFactor: 0.1' gps-camera="maxDistance: 50" rotation-reader>
 		
 	</a-camera>
 </a-scene>
