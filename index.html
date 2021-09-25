@@ -35,13 +35,13 @@
   /* Set up the initial map center and zoom level */
   var map = L.map('map').fitWorld();
 	  
-	  map.locate({setView: true, watch: true, maxZoom: 19});
-
   /* display basemap tiles -- see others at https://leaflet-extras.github.io/leaflet-providers/preview/ */
   L.esri.tiledMapLayer({
     url: 'http://maps.six.nsw.gov.au/arcgis/rest/services/public/NSW_Imagery/MapServer',
       attribution: '&copy;  <a href="https://maps.six.nsw.gov.au/">NSW Public Imagery - Department of Customer Service 2020</a>'
   }).addTo(map);
+	  
+map.locate({setView: true, watch: true, maxZoom: 19});
 
 	  
     var greenIcon = new L.Icon({
